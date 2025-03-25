@@ -71,25 +71,25 @@ export default function CreatePostDrawer({ open, onOpenChange }: CreatePostDrawe
 
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
-      <DrawerContent className="bg-[#e6f7ff] rounded-t-3xl border-t border-[#a3e4d7]">
-        <DrawerHeader className="border-b border-[#a3e4d7] bg-[#d1f5ea] rounded-t-3xl">
-          <DrawerTitle className="text-[#2e8b57]">Create New</DrawerTitle>
-          <DrawerDescription className="text-[#5f9ea0]">
+      <DrawerContent className="bg-[#E4EFE7] rounded-t-3xl border-t border-[#99BC85]">
+        <DrawerHeader className="border-b border-[#99BC85] bg-[#E4EFE7] rounded-t-3xl">
+          <DrawerTitle className="text-[#585451]">Create New</DrawerTitle>
+          <DrawerDescription className="text-[#738d64]">
             Share your DIY project or select items from your inventory
           </DrawerDescription>
         </DrawerHeader>
 
         <Tabs defaultValue="post" value={selectedTab} onValueChange={setSelectedTab} className="w-full p-4">
-          <TabsList className="grid grid-cols-2 w-full bg-[#d1f5ea] rounded-xl">
+          <TabsList className="grid grid-cols-2 w-full bg-[#E4EFE7] rounded-xl">
             <TabsTrigger
               value="post"
-              className="data-[state=active]:bg-[#66cdaa] data-[state=active]:text-white rounded-lg"
+              className="data-[state=active]:bg-[#99BC85] data-[state=active]:text-white rounded-lg"
             >
               Create Post
             </TabsTrigger>
             <TabsTrigger
               value="inventory"
-              className="data-[state=active]:bg-[#66cdaa] data-[state=active]:text-white rounded-lg"
+              className="data-[state=active]:bg-[#99BC85] data-[state=active]:text-white rounded-lg"
             >
               From Inventory
             </TabsTrigger>
@@ -98,43 +98,43 @@ export default function CreatePostDrawer({ open, onOpenChange }: CreatePostDrawe
           <TabsContent value="post" className="mt-4">
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="title" className="text-[#2e8b57]">
+                <Label htmlFor="title" className="text-[#585451]">
                   Title
                 </Label>
                 <Input
                   id="title"
                   placeholder="Enter a title for your post"
-                  className="border-[#a3e4d7] bg-white rounded-xl focus-visible:ring-[#2e8b57]"
+                  className="border-[#99BC85] bg-white rounded-xl focus-visible:ring-[#585451]"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="description" className="text-[#2e8b57]">
+                <Label htmlFor="description" className="text-[#585451]">
                   Description
                 </Label>
                 <Textarea
                   id="description"
                   placeholder="Describe your DIY project..."
-                  className="min-h-24 border-[#a3e4d7] bg-white rounded-xl focus-visible:ring-[#2e8b57]"
+                  className="min-h-24 border-[#99BC85] bg-white rounded-xl focus-visible:ring-[#585451]"
                 />
               </div>
 
               {/* Recycled Materials Used section */}
               {selectedItems.length > 0 && (
                 <div className="space-y-2">
-                  <Label className="text-[#2e8b57]">Recycled Materials Used</Label>
+                  <Label className="text-[#585451]">Recycled Materials Used</Label>
                   <div className="grid grid-cols-2 gap-2">
                     {selectedItems.map((item) => (
-                      <div key={item.id} className="relative bg-white rounded-lg border border-[#a3e4d7] p-2 group">
+                      <div key={item.id} className="relative bg-white rounded-lg border border-[#99BC85] p-2 group">
                         <div className="flex items-center gap-2">
-                          <div className="relative h-10 w-10 rounded-md overflow-hidden border border-[#d1f5ea]">
+                          <div className="relative h-10 w-10 rounded-md overflow-hidden border border-[#E4EFE7]">
                             <img
                               src={item.image || "/placeholder.svg"}
                               alt={item.name}
                               className="object-cover w-full h-full"
                             />
                           </div>
-                          <span className="text-xs text-[#2e8b57] font-medium truncate flex-1">{item.name}</span>
+                          <span className="text-xs text-[#738d64] font-medium truncate flex-1">{item.name}</span>
                         </div>
                         <button
                           className="absolute top-1 right-1 bg-white/80 rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -149,8 +149,8 @@ export default function CreatePostDrawer({ open, onOpenChange }: CreatePostDrawe
               )}
 
               <div className="space-y-2">
-                <Label className="text-[#2e8b57]">Add Image</Label>
-                <div className="flex flex-col items-center justify-center border-2 border-dashed border-[#a3e4d7] rounded-xl p-6 bg-white">
+                <Label className="text-[#585451]">Add Image</Label>
+                <div className="flex flex-col items-center justify-center border-2 border-dashed border-[#99BC85] rounded-xl p-6 bg-white">
                   {selectedImage ? (
                     <div className="relative w-full">
                       <img
@@ -170,7 +170,7 @@ export default function CreatePostDrawer({ open, onOpenChange }: CreatePostDrawe
                   ) : (
                     <Button
                       variant="outline"
-                      className="border-[#a3e4d7] text-[#2e8b57] hover:bg-[#d1f5ea] rounded-xl"
+                      className="border-[#99BC85] text-[#738d64] hover:bg-[#E4EFE7] rounded-xl"
                       onClick={() => setSelectedImage("/placeholder.svg?height=200&width=300")}
                     >
                       <Image className="h-4 w-4 mr-2" />
@@ -183,40 +183,34 @@ export default function CreatePostDrawer({ open, onOpenChange }: CreatePostDrawe
           </TabsContent>
 
           <TabsContent value="inventory" className="mt-4">
-            <Label className="text-[#2e8b57] mb-2 block">Select Items from Your Inventory</Label>
-            <ScrollArea className="h-64 rounded-xl border border-[#a3e4d7] bg-white p-2">
+            <ScrollArea className="h-[300px] pr-4">
               <div className="space-y-2">
                 {inventoryItems.map((item) => (
                   <div
                     key={item.id}
-                    className={`flex items-center space-x-3 p-2 rounded-xl transition-colors ${
-                      pendingItems.some((i) => i.id === item.id)
-                        ? "bg-[#d1f5ea] border border-[#a3e4d7]"
-                        : "hover:bg-[#e6f7ff]"
-                    }`}
+                    className="flex items-center bg-white rounded-lg border border-[#99BC85] p-2"
                     onClick={() => toggleItemSelection(item)}
                   >
-                    <div className="flex items-center h-5">
+                    <div className="pr-2 flex items-center gap-2">
                       <Checkbox
                         id={`item-${item.id}`}
                         checked={pendingItems.some((i) => i.id === item.id)}
-                        onCheckedChange={() => toggleItemSelection(item)}
-                        className="border-[#a3e4d7] data-[state=checked]:bg-[#2e8b57] data-[state=checked]:text-white"
+                        className="border-[#99BC85] data-[state=checked]:bg-[#99BC85] data-[state=checked]:text-white"
                       />
                     </div>
                     <div className="flex items-center flex-1 space-x-3">
                       <img
                         src={item.image || "/placeholder.svg"}
                         alt={item.name}
-                        className="h-10 w-10 rounded-lg object-cover border border-[#a3e4d7]"
+                        className="h-10 w-10 rounded-lg object-cover border border-[#99BC85]"
                       />
                       <Label
                         htmlFor={`item-${item.id}`}
-                        className="text-sm font-medium text-[#2e8b57] cursor-pointer flex-1"
+                        className="text-sm font-medium text-[#738d64] cursor-pointer flex-1"
                       >
                         {item.name}
                       </Label>
-                      {pendingItems.some((i) => i.id === item.id) && <Check className="h-4 w-4 text-[#2e8b57]" />}
+                      {pendingItems.some((i) => i.id === item.id) && <Check className="h-4 w-4 text-[#738d64]" />}
                     </div>
                   </div>
                 ))}
@@ -225,12 +219,12 @@ export default function CreatePostDrawer({ open, onOpenChange }: CreatePostDrawe
           </TabsContent>
         </Tabs>
 
-        <DrawerFooter className="border-t border-[#a3e4d7] bg-[#d1f5ea]">
+        <DrawerFooter className="border-t border-[#99BC85] bg-[#E4EFE7]">
           {selectedTab === "post" ? (
-            <Button className="bg-[#2e8b57] hover:bg-[#1d6b43] text-white rounded-xl">Create Post</Button>
+            <Button className="bg-[#99BC85] hover:bg-[#738d64] text-white rounded-xl">Create Post</Button>
           ) : (
             <Button
-              className="bg-[#2e8b57] hover:bg-[#1d6b43] text-white rounded-xl"
+              className="bg-[#99BC85] hover:bg-[#738d64] text-white rounded-xl"
               onClick={handleShareItems}
               disabled={pendingItems.length === 0}
             >
@@ -238,7 +232,7 @@ export default function CreatePostDrawer({ open, onOpenChange }: CreatePostDrawe
             </Button>
           )}
           <DrawerClose asChild>
-            <Button variant="outline" className="border-[#a3e4d7] text-[#2e8b57] hover:bg-[#c5f0e3] rounded-xl">
+            <Button variant="outline" className="border-[#99BC85] text-[#738d64] hover:bg-[#E4EFE7] rounded-xl">
               Cancel
             </Button>
           </DrawerClose>

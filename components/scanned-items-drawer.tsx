@@ -117,13 +117,13 @@ export default function ScannedItemsDrawer({
 
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
-      <DrawerContent className="bg-[#e6f7ff] rounded-t-3xl border-t border-[#a3e4d7]">
+      <DrawerContent className="bg-[#E4EFE7] rounded-t-3xl border-t border-[#99BC85]">
         <div className="mx-auto w-full max-w-md">
-          <DrawerHeader className="border-b border-[#a3e4d7] bg-[#d1f5ea] rounded-t-3xl">
-            <DrawerTitle className="text-[#2e8b57]">
+          <DrawerHeader className="border-b border-[#99BC85] bg-[#E4EFE7] rounded-t-3xl">
+            <DrawerTitle className="text-[#585451]">
               {activeTab === "scan" ? "Scan Barcode" : activeTab === "scanned" ? "Scanned Items" : "DIY Ideas"}
             </DrawerTitle>
-            <DrawerDescription className="text-[#5f9ea0]">
+            <DrawerDescription className="text-[#738d64]">
               {activeTab === "scan"
                 ? "Scan items to add to your inventory"
                 : activeTab === "scanned"
@@ -137,24 +137,24 @@ export default function ScannedItemsDrawer({
             onValueChange={(value) => onTabChange(value as "scan" | "scanned" | "ideas")}
             className="w-full"
           >
-            <TabsList className="grid grid-cols-3 w-full bg-[#d1f5ea] border-b border-[#a3e4d7]">
+            <TabsList className="grid grid-cols-3 w-full bg-[#E4EFE7] border-b border-[#99BC85]">
               <TabsTrigger
                 value="scan"
-                className="data-[state=active]:bg-[#66cdaa] data-[state=active]:text-white rounded-t-lg flex items-center gap-1.5"
+                className="data-[state=active]:bg-[#99BC85] data-[state=active]:text-white rounded-t-lg flex items-center gap-1.5"
               >
                 <Camera className="h-4 w-4" />
                 Scan
               </TabsTrigger>
               <TabsTrigger
                 value="scanned"
-                className="data-[state=active]:bg-[#66cdaa] data-[state=active]:text-white rounded-t-lg flex items-center gap-1.5"
+                className="data-[state=active]:bg-[#99BC85] data-[state=active]:text-white rounded-t-lg flex items-center gap-1.5"
               >
                 <Package className="h-4 w-4" />
                 Items ({scannedItems.length})
               </TabsTrigger>
               <TabsTrigger
                 value="ideas"
-                className="data-[state=active]:bg-[#66cdaa] data-[state=active]:text-white rounded-t-lg flex items-center gap-1.5"
+                className="data-[state=active]:bg-[#99BC85] data-[state=active]:text-white rounded-t-lg flex items-center gap-1.5"
               >
                 <Lightbulb className="h-4 w-4" />
                 Ideas ({diyIdeas.length})
@@ -222,19 +222,19 @@ export default function ScannedItemsDrawer({
                   {scannedItems.map((item) => (
                     <div
                       key={item.id}
-                      className="bg-white rounded-xl p-3 border border-[#a3e4d7] flex items-center gap-3"
+                      className="bg-white rounded-xl p-3 border border-[#99BC85] flex items-center gap-3"
                     >
-                      <div className="relative h-12 w-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-[#d1f5ea]">
+                      <div className="relative h-12 w-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-[#E4EFE7]">
                         <Image src={item.image || "/placeholder.svg"} alt={item.name} fill className="object-cover" />
                       </div>
 
                       <div className="flex-1">
-                        <h3 className="font-medium text-sm text-[#2e8b57]">{item.name}</h3>
+                        <h3 className="font-medium text-sm text-[#585451]">{item.name}</h3>
                         <div className="flex flex-wrap gap-1 mt-1">
                           {item.materials.map((material, index) => (
                             <Badge
                               key={index}
-                              className="bg-[#e6f7ff] hover:bg-[#d1f5ea] text-[#5f9ea0] text-xs rounded-full"
+                              className="bg-[#E4EFE7] hover:bg-[#d3ddd6] text-[#738d64] text-xs rounded-full"
                             >
                               {material}
                             </Badge>
@@ -245,17 +245,9 @@ export default function ScannedItemsDrawer({
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8">
-                  <Package className="h-12 w-12 text-[#a3e4d7] mx-auto mb-2" />
-                  <h3 className="text-lg font-semibold text-[#2e8b57]">No items scanned</h3>
-                  <p className="text-sm text-[#5f9ea0] mt-1 mb-4">Scan barcodes to add items to your inventory</p>
-                  <Button
-                    onClick={() => onTabChange("scan")}
-                    className="bg-[#2e8b57] hover:bg-[#1d6b43] text-white rounded-xl"
-                  >
-                    <Camera className="h-4 w-4 mr-2" />
-                    Go to Scanner
-                  </Button>
+                <div className="text-center py-8 text-[#738d64]">
+                  <Package className="h-12 w-12 mx-auto mb-2 opacity-50" />
+                  <p>No items scanned yet</p>
                 </div>
               )}
             </TabsContent>
@@ -265,13 +257,13 @@ export default function ScannedItemsDrawer({
               {diyIdeas.length > 0 ? (
                 <div className="space-y-4">
                   {diyIdeas.map((idea, index) => (
-                    <div key={index} className="bg-white rounded-xl overflow-hidden border border-[#a3e4d7]">
+                    <div key={index} className="bg-white rounded-xl overflow-hidden border border-[#99BC85]">
                       <div className="relative h-32 w-full">
                         <Image src={idea.image || "/placeholder.svg"} alt={idea.title} fill className="object-cover" />
                         <div className="absolute top-2 right-2">
                           <Badge
                             className={`
-                            ${idea.difficulty === "Easy" ? "bg-[#66cdaa]" : "bg-[#ffa726]"}
+                            ${idea.difficulty === "Easy" ? "bg-[#99BC85]" : "bg-[#738d64]"}
                             text-white rounded-full px-2 py-0.5
                           `}
                           >
@@ -281,8 +273,8 @@ export default function ScannedItemsDrawer({
                       </div>
 
                       <div className="p-3">
-                        <h3 className="font-semibold text-[#2e8b57]">{idea.title}</h3>
-                        <p className="text-xs text-[#5f9ea0] mt-1 mb-2">{idea.description}</p>
+                        <h3 className="font-semibold text-[#585451]">{idea.title}</h3>
+                        <p className="text-xs text-[#738d64] mt-1 mb-2">{idea.description}</p>
 
                         <div className="flex flex-wrap gap-1">
                           {idea.materials.map((material, idx) => (
@@ -291,8 +283,8 @@ export default function ScannedItemsDrawer({
                               className={`
                                 ${
                                   scannedItems.some((item) => item.materials.includes(material))
-                                    ? "bg-[#d1f5ea] text-[#2e8b57]"
-                                    : "bg-[#e6f7ff] text-[#5f9ea0]"
+                                    ? "bg-[#E4EFE7] text-[#585451]"
+                                    : "bg-[#E4EFE7] text-[#738d64]"
                                 } 
                                 text-xs rounded-full
                               `}
@@ -306,27 +298,19 @@ export default function ScannedItemsDrawer({
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8">
-                  <Lightbulb className="h-12 w-12 text-[#a3e4d7] mx-auto mb-2" />
-                  <h3 className="text-lg font-semibold text-[#2e8b57]">No DIY ideas yet</h3>
-                  <p className="text-sm text-[#5f9ea0] mt-1 mb-4">Scan items to get personalized DIY project ideas</p>
-                  <Button
-                    onClick={() => onTabChange("scan")}
-                    className="bg-[#2e8b57] hover:bg-[#1d6b43] text-white rounded-xl"
-                  >
-                    <Camera className="h-4 w-4 mr-2" />
-                    Go to Scanner
-                  </Button>
+                <div className="text-center py-8 text-[#738d64]">
+                  <Lightbulb className="h-12 w-12 mx-auto mb-2 opacity-50" />
+                  <p>No DIY ideas available</p>
                 </div>
               )}
             </TabsContent>
           </Tabs>
 
-          <DrawerFooter className="border-t border-[#a3e4d7] bg-[#d1f5ea]">
+          <DrawerFooter className="border-t border-[#99BC85] bg-[#E4EFE7]">
             <div className="flex gap-2">
               {activeTab === "scan" ? (
                 <Button
-                  className="flex-1 bg-[#2e8b57] hover:bg-[#1d6b43] text-white rounded-xl"
+                  className="flex-1 bg-[#99BC85] hover:bg-[#738d64] text-white rounded-xl"
                   onClick={() => onTabChange("scanned")}
                 >
                   View Scanned Items ({scannedItems.length})
@@ -334,9 +318,8 @@ export default function ScannedItemsDrawer({
               ) : activeTab === "scanned" && scannedItems.length > 0 ? (
                 <>
                   <Button
-                    className="flex-1 bg-[#2e8b57] hover:bg-[#1d6b43] text-white rounded-xl"
+                    className="flex-1 bg-[#99BC85] hover:bg-[#738d64] text-white rounded-xl"
                     onClick={() => {
-                      // Add to inventory logic would go here
                       onClearItems()
                       onOpenChange(false)
                     }}
@@ -346,28 +329,14 @@ export default function ScannedItemsDrawer({
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-[#a3e4d7] text-[#ff6b6b] hover:bg-[#ffebee] hover:text-[#ff5252] rounded-xl"
+                    className="flex-1 border-[#99BC85] text-[#738d64] hover:bg-[#E4EFE7] rounded-xl"
                     onClick={onClearItems}
                   >
                     <Trash2 className="h-4 w-4 mr-2" />
                     Clear All
                   </Button>
                 </>
-              ) : activeTab === "ideas" ? (
-                <Button
-                  className="flex-1 bg-[#2e8b57] hover:bg-[#1d6b43] text-white rounded-xl"
-                  onClick={() => onTabChange("scan")}
-                >
-                  Scan More Items
-                </Button>
-              ) : (
-                <Button
-                  className="flex-1 bg-[#2e8b57] hover:bg-[#1d6b43] text-white rounded-xl"
-                  onClick={() => onTabChange("scan")}
-                >
-                  Scan Items
-                </Button>
-              )}
+              ) : null}
             </div>
           </DrawerFooter>
         </div>

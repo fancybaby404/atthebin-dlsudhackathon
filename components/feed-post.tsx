@@ -61,11 +61,11 @@ export default function FeedPost({
   }
 
   return (
-    <Card className="overflow-hidden rounded-3xl border-[#a3e4d7] bg-white shadow-md">
+    <Card className="overflow-hidden rounded-3xl border-[#99BC85] bg-white shadow-md">
       <CardContent className="p-4">
         <div className="flex items-center gap-3 mb-3">
-          <Avatar className="border-2 border-[#a3e4d7]">
-            <AvatarImage src="/placeholder.svg?height=40&width=40" alt={name} />
+          <Avatar className="border-2 border-[#99BC85]">
+            <AvatarImage src="/public/placeholder.svg" alt={name} />
             <AvatarFallback className="bg-[#87ceeb] text-white">
               {name
                 .split(" ")
@@ -77,14 +77,14 @@ export default function FeedPost({
           <div>
             <h3 className="font-semibold text-[#2e8b57]">{name}</h3>
             <div className="flex items-center gap-2 text-xs">
-              <span className="text-[#5f9ea0] bg-[#e6f7ff] px-2 py-0.5 rounded-full">{school}</span>
-              <span className="text-[#a3e4d7]">•</span>
-              <span className="text-[#5f9ea0]">{date}</span>
+              <span className="text-[#595856] bg-[#e6f7ff] px-2 py-0.5 rounded-full">{school}</span>
+              <span className="text-[#595856]">•</span>
+              <span className="text-[#595856]">{date}</span>
             </div>
           </div>
         </div>
 
-        <p className="text-sm mb-3 text-[#2e8b57]">{content}</p>
+        <p className="text-sm mb-3 text-[#595856]">{content}</p>
 
         <div className="relative h-48 w-full rounded-xl overflow-hidden mb-2">
           <Image src={image || "/placeholder.svg"} alt="Post image" fill className="object-cover" />
@@ -98,7 +98,7 @@ export default function FeedPost({
             size="sm"
             onClick={handleLike}
             className={`flex items-center gap-1 rounded-full px-3 ${
-              userVote === "like" ? "bg-[#d1f5ea] text-[#2e8b57]" : "text-[#5f9ea0] hover:bg-[#e6f7ff]"
+              userVote === "like" ? "bg-[#d1f5ea] text-[#2e8b57]" : "text-[#595856] hover:bg-[#e6f7ff]"
             }`}
           >
             <ThumbsUp className="h-4 w-4" />
@@ -110,7 +110,7 @@ export default function FeedPost({
             size="sm"
             onClick={handleDislike}
             className={`flex items-center gap-1 rounded-full px-3 ${
-              userVote === "dislike" ? "bg-[#ffebee] text-[#ff6b6b]" : "text-[#5f9ea0] hover:bg-[#e6f7ff]"
+              userVote === "dislike" ? "bg-[#ffebee] text-[#ff6b6b]" : "text-[#595856] hover:bg-[#e6f7ff]"
             }`}
           >
             <ThumbsDown className="h-4 w-4" />

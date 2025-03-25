@@ -73,7 +73,7 @@ export default function AppLayout() {
   }
 
   return (
-    <div className="flex justify-center w-full bg-[#e6f7ff] min-h-screen">
+    <div className="flex justify-center w-full bg-[#E4EFE7] min-h-screen">
       <main className="flex flex-col w-full max-w-md relative">
         <div className="flex-1 pb-20">
           {activeTab === "feed" ? <FeedPage /> : <ProfilePage />}
