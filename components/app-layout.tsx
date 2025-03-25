@@ -63,11 +63,11 @@ export default function AppLayout() {
     }
   }
 
-  const handlePlusClick = () => {
-    if (activeTab === "profile") {
+  const handlePlusClick = (action?: "camera" | "post") => {
+    if (action === "camera") {
       setScannedDrawerOpen(true)
       setScanDrawerTab("scan")
-    } else {
+    } else if (action === "post") {
       setDrawerOpen(true)
     }
   }
